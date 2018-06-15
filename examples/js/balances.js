@@ -11,29 +11,29 @@ let sleep = (ms) => new Promise (resolve => setTimeout (resolve, ms))
 ;(async () => {
 
     // instantiate the exchange
-    let gdax = new ccxt.gdax  ({ // ... or new ccxt.gdax ()
-        'apiKey': '92560ffae9b8a01d012726c698bcb2f1', // standard
-        'secret': '9aHjPmW+EtRRKN/OiZGjXh8OxyThnDL4mMDre4Ghvn8wjMniAr5jdEZJLN/knW6FHeQyiz3dPIL5ytnF0Y6Xwg==', 
-        'password': '6kszf4aci8r', // GDAX requires a password!
-    })
+    // let gdax = new ccxt.gdax  ({ // ... or new ccxt.gdax ()
+    //     'apiKey': '92560ffae9b8a01d012726c698bcb2f1', // standard
+    //     'secret': '9aHjPmW+EtRRKN/OiZGjXh8OxyThnDL4mMDre4Ghvn8wjMniAr5jdEZJLN/knW6FHeQyiz3dPIL5ytnF0Y6Xwg==',
+    //     'password': '6kszf4aci8r', // GDAX requires a password!
+    // })
+    //
+    // // use the testnet for GDAX
+    // gdax.urls['api'] = 'https://api-public.sandbox.gdax.com'
+    //
+    // let hitbtc = new ccxt.hitbtc ({
+    //     'apiKey': '18339694544745d9357f9e7c0f7c41bb',
+    //     'secret': '8340a60fb4e9fc73a169c26c7a7926f5',
+    // })
+    //
+    // let quadrigacx = new ccxt.quadrigacx ({
+    //     'apiKey': 'jKvWkMqrOj',
+    //     'secret': 'f65a2e3bf3c73171ee14e389314b2f78',
+    //     'uid': '395037', // QuadrigaCX requires uid!
+    // })
 
-    // use the testnet for GDAX
-    gdax.urls['api'] = 'https://api-public.sandbox.gdax.com'
+    try {
 
-    let hitbtc = new ccxt.hitbtc ({
-        'apiKey': '18339694544745d9357f9e7c0f7c41bb',
-        'secret': '8340a60fb4e9fc73a169c26c7a7926f5',
-    })
-
-    let quadrigacx = new ccxt.quadrigacx ({
-        'apiKey': 'jKvWkMqrOj',
-        'secret': 'f65a2e3bf3c73171ee14e389314b2f78',
-        'uid': '395037', // QuadrigaCX requires uid!
-    })
-
-    try { 
-
-        // fetch account balance from the exchange 
+        // fetch account balance from the exchange
         let gdaxBalance = await gdax.fetchBalance ()
 
         // output the result
@@ -69,5 +69,5 @@ let sleep = (ms) => new Promise (resolve => setTimeout (resolve, ms))
             throw e;
         }
     }
-        
+
 }) ()
